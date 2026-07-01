@@ -7,10 +7,6 @@ from algorithms import nearest_neighbor_tsp, longest_edge_MST, compute_MST, mini
 from utils import *
 from visualizations import visualize_visit
 
-# TODO add assertions and validations for input data (k, n_agents, ...etc)
-# TODO _create_folder method: make reliable in case run_id is aboslution path...
-# TODO step method: (optimization) make the input uavs include only the remaining ones to avoid duplicate interactions
-
 class InfoDiss:
     i = 0
 
@@ -181,45 +177,6 @@ class InfoDiss:
  
     def get_global_obs(self):
         leaders = [uav for uav in self.uavs if uav.is_leader]
-
-
-        # assistant_counts = [leader._number_of_assistants() for leader in leaders]
-        # # total assistants 
-        # total_assistants = sum(assistant_counts)
-        # remaining_assistants = self.n_agents - self.k - total_assistants
-
-        # remaining_assistant_ratio = remaining_assistants / (self.n_agents - self.k)
-
-        # # max 
-        # max_assistants = max(assistant_counts)
-        # max_dist = max([leader.total_distance_travelled for leader in leaders])
-
-        # obs_list = []
-        # for ag in leaders:
-        #     obs = [
-        #         ag._path_dist() / ag.waypoints, # reamining dist
-        #         ag._dist_to_next() / 100, # dist to next 
-        #         ag._dist_to_second_next() / 100, # dist to second next
-        #         1 - ag._len_path() / ag.waypoints, # path progress (waypoints)
-
-        #         ag._number_of_assistants() / max(1, ag.L), # assigned assistants 
-                
-        #         # ag.total_distance_travelled / 100,
-
-        #         remaining_assistant_ratio, # reamining assistants ratio
-        #         ag.L, 
-        #         ag.k / ag.waypoints,
-        #         ag.waypoints / 100,
-
-        #         max_dist / 100, # max dist travelled
-        #         max_assistants, # max assistants
-
-        #         # ag._dist_to_inital_pos() / 100,
-        #         # ag.total_comm_visits,
-        #     ]
-        #     obs_list.append(obs)
-
-        # return np.array(obs_list, dtype=np.float32)
 
         ### Initial global state
         global_obs = []

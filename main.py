@@ -119,28 +119,28 @@ def run_simulation_with_args(args):
 
 
 def main():
-    # parser = argparse.ArgumentParser(description="Run Information Dissemination Simulation")
+    parser = argparse.ArgumentParser(description="Run Information Dissemination Simulation")
 
-    # parser.add_argument("--assigning_strategy", type=str, required=True, 
-    #                     choices=["base-case", "normal-case", "limited", "toggle", "adaptive-limit", "adaptive-freq", "random", "no-assistant", "rl"],
-    #                     help="Assistant assignment strategy")
-    # parser.add_argument("--mode", type=str, default="run", choices=["run", "experiment"], required=True,
-    #                     help="Mode: 'run' for one-time simulation, 'experiment' for batch runs")
-    # parser.add_argument("--n_agents", type=int, help="Number of agents in the simulation")
-    # parser.add_argument("--k", type=int, help="Number of leaders in the simulation")
-    # parser.add_argument("--seed", type=int, default=None, help="Random seed (optional)")
+    parser.add_argument("--assigning_strategy", type=str, required=True, 
+                        choices=["base-case", "normal-case", "limited", "toggle", "adaptive-limit", "adaptive-freq", "random", "no-assistant", "rl"],
+                        help="Assistant assignment strategy")
+    parser.add_argument("--mode", type=str, default="run", choices=["run", "experiment"], required=True,
+                        help="Mode: 'run' for one-time simulation, 'experiment' for batch runs")
+    parser.add_argument("--n_agents", type=int, help="Number of agents in the simulation")
+    parser.add_argument("--k", type=int, help="Number of leaders in the simulation")
+    parser.add_argument("--seed", type=int, default=None, help="Random seed (optional)")
     
-    # parser.add_argument("--rl_agent", type=str, default=None, 
-    #                     help="RL agent to use if assigning_strategy == 'rl' (e.g., 'ppo', 'dqn')", 
-    #                     choices=["PPO"])
+    parser.add_argument("--rl_agent", type=str, default=None, 
+                        help="RL agent to use if assigning_strategy == 'rl' (e.g., 'ppo', 'dqn')", 
+                        choices=["PPO"])
     
-    # parser.add_argument("--experiment_name", type=str, default=None, 
-    #                     help="Name of the experiment (required if mode=experiment)")
+    parser.add_argument("--experiment_name", type=str, default=None, 
+                        help="Name of the experiment (required if mode=experiment)")
 
-    # parser.add_argument("--visualize", action="store_true", help="Enable visualization")
-    # parser.add_argument("--map_size", type=int, default=100, help="Size of the simulation map (default: 100)")
+    parser.add_argument("--visualize", action="store_true", help="Enable visualization")
+    parser.add_argument("--map_size", type=int, default=100, help="Size of the simulation map (default: 100)")
 
-    # args = parser.parse_args()
+    args = parser.parse_args()
 
 
     # PROGRAMATICALLY RUN
@@ -189,25 +189,25 @@ def main():
     # )
     
     # run with specific initial positions
-    args = argparse.Namespace(
-        assigning_strategy="normal-case",
-        mode="custom",
-        n_agents=3,
-        k=1,
-        seed=None,
-        rl_agent=None,
-        # rl_agent="models/specialized/test31.pt",
-        # rl_agent="models/curriculum learning/test61.pt",
-        experiment_name="gazebo_5",
-        visualize=False, 
-        map_size=100,
-        positions=[
-            [ 49.78147354, -20.18210742],
-            [-44.0748303 , -14.32444946],
-            [41.112335 , 12.8400851],
-        ], 
-        leader_uavs=[1]
-    )
+    # args = argparse.Namespace(
+    #     assigning_strategy="normal-case",
+    #     mode="custom",
+    #     n_agents=3,
+    #     k=1,
+    #     seed=None,
+    #     rl_agent=None,
+    #     # rl_agent="models/specialized/test31.pt",
+    #     # rl_agent="models/curriculum learning/test61.pt",
+    #     experiment_name="gazebo_5",
+    #     visualize=False, 
+    #     map_size=100,
+    #     positions=[
+    #         [ 49.78147354, -20.18210742],
+    #         [-44.0748303 , -14.32444946],
+    #         [41.112335 , 12.8400851],
+    #     ], 
+    #     leader_uavs=[1]
+    # )
     run_simulation_with_args(args)
 
 if __name__ == "__main__":
