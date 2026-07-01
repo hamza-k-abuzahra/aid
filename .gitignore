@@ -1,0 +1,11 @@
+experiments/*
+experiments/
+tsp/*
+tsp/
+results/*
+.vscode
+.pytest_cache/*
+.pytest_cache/
+__pycache__/
+__pycache__/*
+std/
